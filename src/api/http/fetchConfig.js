@@ -1,1 +1,1 @@
-export const DOMAIN = 'http://localhost:3030/api'
+export const DOMAIN = process.env.REACT_APP_DOMAIN

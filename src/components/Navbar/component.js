@@ -8,6 +8,7 @@ function NavbarComponent(){
     const isAuth = useSelector((state) => !!state.user.user);
     const currentUser = useSelector((state) => state.user.user);
     const dispatch = useDispatch();
+
     const handleOut = () => {
         dispatch(clearToken());
         dispatch(clearUser())
