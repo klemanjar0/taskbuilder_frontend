@@ -20,14 +20,16 @@ export const fetchUserError = () => {
     };
 };
 
-export const fetchUser = (accessToken) => {
+export const fetchUser = () => {
     return dispatch => {
         dispatch(fetchUserPending());
-        const request = new Request(`${DOMAIN}/me`, {
-            headers: new Headers({
-                'Authorization': 'Bearer ' + accessToken
-            })
-        });
+        const request = configuredRequest('/me',
+            'GET',
+
+            {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            });
         fetch(request).then(res => {
             if(res.statusText === "Unauthorized") {
                 window.location.href = './';

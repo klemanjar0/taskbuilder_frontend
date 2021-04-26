@@ -15,7 +15,7 @@ const tokenReducer = (currentState = INITIAL_STATE, {type, payload}) => {
                 ...currentState,
                 token: payload.token,
                 fetchLoginError: false,
-                fetchUserPending: false
+                fetchLoginPending: false
             };
         }
         case "FETCH_LOGIN_ERROR":{

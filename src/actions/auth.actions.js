@@ -1,4 +1,6 @@
 import {configuredRequest} from "../api/http/configuredFetch";
+import {fetchUser} from "./user.actions";
+import {setToken} from "../store/local.store";
 
 export const fetchLoginPending = () => {
     return {
@@ -6,10 +8,10 @@ export const fetchLoginPending = () => {
     };
 };
 
-export const fetchLoginSuccess = (user) => {
+export const fetchLoginSuccess = (token) => {
     return {
         type: 'FETCH_LOGIN_SUCCESS',
-        payload: user
+        payload: token
     };
 };
 
@@ -21,7 +23,7 @@ export const fetchLoginError = () => {
 
 export const fetchLogin = ({ login, password }) => {
     return dispatch => {
-        fetchLoginPending();
+        dispatch(fetchLoginPending());
         const request = configuredRequest('/login',
             'POST',
 
@@ -40,6 +42,7 @@ export const fetchLogin = ({ login, password }) => {
             return res.json();
         }).then(res => {
             dispatch(fetchLoginSuccess(res));
+            setToken(res);
         }).catch(err => {
             dispatch(fetchLoginError(err));
         });

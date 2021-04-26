@@ -3,6 +3,7 @@ import {Button, Container, Form, FormControl, Nav, Navbar} from "react-bootstrap
 import {Redirect} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchLogin} from "../../actions/auth.actions";
+import {fetchUser} from "../../actions/user.actions";
 
 function SignInComponent(){
     const isAuth = useSelector((state) => !!state.user.name);
@@ -15,7 +16,8 @@ function SignInComponent(){
     };
 
     const loginUser = () => {
-        dispatch(fetchLogin({login: user.email, password: user.password}))
+        dispatch(fetchLogin({login: user.email, password: user.password}));
+        dispatch(fetchUser());
     }
 
     if (isAuth) {
