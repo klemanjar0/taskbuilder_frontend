@@ -19,7 +19,11 @@ export const fetchUserError = () => {
         type: 'FETCH_USER_ERROR'
     };
 };
-
+export const clearUser = () => {
+    return {
+        type: 'CLEAR_USER'
+    };
+};
 export const fetchUser = () => {
     return dispatch => {
         dispatch(fetchUserPending());

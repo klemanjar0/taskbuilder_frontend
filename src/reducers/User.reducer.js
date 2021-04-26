@@ -23,6 +23,9 @@ const userReducer = (currentState = INITIAL_STATE, {type, payload}) => {
                 fetchUserError: true,
                 fetchUserPending: false
             };
+        case "CLEAR_USER":{
+            return {};
+        }
         default:
             return currentState;
     }
