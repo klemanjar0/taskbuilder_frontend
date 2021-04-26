@@ -17,7 +17,6 @@ function SignInComponent(){
 
     const loginUser = () => {
         dispatch(fetchLogin({login: user.email, password: user.password}));
-        dispatch(fetchUser());
     }
 
     if (isAuth) {

@@ -43,6 +43,8 @@ export const fetchLogin = ({ login, password }) => {
         }).then(res => {
             dispatch(fetchLoginSuccess(res));
             setToken(res);
+        }).then(()=>{
+            dispatch(fetchUser());
         }).catch(err => {
             dispatch(fetchLoginError(err));
         });
