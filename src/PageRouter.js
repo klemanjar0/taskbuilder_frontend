@@ -11,11 +11,16 @@ import {
 import HomepageComponent from "./components/Homepage/component";
 import SignUpComponent from "./components/SignUp/component";
 import SignInComponent from "./components/SignIn/component";
+import {useSelector} from "react-redux";
+import MainPageComponent from "./components/Mainpage/component";
+import NavbarComponent from "./components/Navbar/component";
 
 
 function PageRouter(){
+    const isAuth = useSelector((state) => !!state.user.user);
     return(
         <Router>
+            <NavbarComponent/>
             <Switch>
                 <Route path="/signin">
                     <SignInComponent/>
@@ -24,7 +29,10 @@ function PageRouter(){
                     <SignUpComponent/>
                 </Route>
                 <Route path="/">
-                    <HomepageComponent/>
+                    {isAuth ?
+                        <MainPageComponent/> :
+                        <HomepageComponent/>
+                    }
                 </Route>
             </Switch>
         </Router>

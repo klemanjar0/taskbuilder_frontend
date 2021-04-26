@@ -51,7 +51,7 @@ function SignInComponent(){
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button variant="primary" className="float-right mt-5" type="submit" onClick={loginUser}>
+                    <Button variant="outline-light" className="float-right mt-5" type="submit" onClick={loginUser}>
                         Submit
                     </Button>
                 </Form>

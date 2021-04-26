@@ -1,4 +1,4 @@
-import {configuredRequest} from "../api/http/configuredFetch";
+import {configuredRequest, setFetchToken} from "../api/http/configuredFetch";
 import {fetchUser} from "./user.actions";
 import {setToken} from "../store/local.store";
 

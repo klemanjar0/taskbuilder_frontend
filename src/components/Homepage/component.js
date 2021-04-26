@@ -2,11 +2,10 @@ import React, {useEffect} from "react";
 import {Button, Container} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUserError} from "../../actions/user.actions";
-//import Back from '../../assets/notebook_background.jpeg'
 
-//backgroundImage: `url(${Back})`
 function HomepageComponent(){
     const dispatch = useDispatch();
+
     const heading = {
         fontSize: "3rem",
         margin: '2rem'
