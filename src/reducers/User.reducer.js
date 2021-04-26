@@ -12,7 +12,7 @@ const userReducer = (currentState = INITIAL_STATE, {type, payload}) => {
         case "FETCH_USER_SUCCESS":
             return {
                 ...currentState,
-                user: payload.user,
+                user: payload,
                 fetchUserError: false,
                 fetchUserPending: false
             };

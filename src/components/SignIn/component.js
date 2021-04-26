@@ -6,19 +6,17 @@ import {fetchLogin} from "../../actions/auth.actions";
 import {fetchUser} from "../../actions/user.actions";
 
 function SignInComponent(){
-    const isAuth = useSelector((state) => !!state.user.name);
+    const isAuth = useSelector((state) => !!state.user.user);
     const [user, setUser] = useState({});
-
     const dispatch = useDispatch();
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-    };
 
     const loginUser = () => {
         dispatch(fetchLogin({login: user.email, password: user.password}));
     }
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
+    };
     if (isAuth) {
         return (<Redirect to="/"/>);
     }
@@ -53,7 +51,7 @@ function SignInComponent(){
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={loginUser}>
+                    <Button variant="primary" className="float-right mt-5" type="submit" onClick={loginUser}>
                         Submit
                     </Button>
                 </Form>

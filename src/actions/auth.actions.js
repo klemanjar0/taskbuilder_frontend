@@ -42,10 +42,12 @@ export const fetchLogin = ({ login, password }) => {
             return res.json();
         }).then(res => {
             dispatch(fetchLoginSuccess(res));
-            setToken(res);
-        }).then(()=>{
+            setToken(res.token);
+        })
+            .then(()=>{
             dispatch(fetchUser());
-        }).catch(err => {
+        })
+            .catch(err => {
             dispatch(fetchLoginError(err));
         });
     };
