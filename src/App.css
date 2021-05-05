@@ -12,7 +12,22 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.text-rose {
+  color: #CB636B;
+}
+.bg-darker {
+  background-color: #282c34;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 10px;
+  background-color: #CB636B;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #CB636B;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.75);
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

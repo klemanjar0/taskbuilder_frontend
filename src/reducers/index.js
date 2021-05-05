@@ -4,6 +4,7 @@ import appReducer from './App.reducer';
 import userReducer from "./User.reducer";
 import tokenReducer from "./Token.reducer";
 import foldersReducer from "./Folders.reducer";
+import tabReducer from "./Tab.reducer";
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     user: userReducer,
     token: tokenReducer,
     folders: foldersReducer,
+    tabs: tabReducer,
     routing: routerReducer
 })

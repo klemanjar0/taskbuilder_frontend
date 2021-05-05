@@ -27,7 +27,7 @@ function NavbarComponent(){
                     {
                         isAuth ?
                             <>
-                                <Nav.Link onClick={handleOut}><Link to="/" style={{ textDecoration: 'none', color: '#D2767D'}}><Icon.Arrow90degDown /> Sign out</Link></Nav.Link>
+                                <Nav.Link onClick={handleOut}><Link to="/" style={{ textDecoration: 'none', color: '#D2767D'}}>Sign out</Link></Nav.Link>
                                 <Nav.Link><Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}>{currentUser.name}</Link></Nav.Link>
                             </>
                             :

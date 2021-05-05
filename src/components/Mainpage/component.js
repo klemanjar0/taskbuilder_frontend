@@ -10,10 +10,13 @@ function MainPageComponent(){
 
     const user = useSelector((state) => state.user);
     const folders = useSelector((state) => state.folders);
-
+    const tabs = useSelector((state) => state.tabs);
     const [isLoading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+
+    },[tabs.currentTab])
 
     useEffect(()=>{
         try {
@@ -28,35 +31,21 @@ function MainPageComponent(){
 
 
     return(
-            <>
+            <div style={{width: '94%'}} className='m-auto'>
                 <Row>
-                    <Col>
+                    <Col xs={4}>
                             <Card bg="dark" style={{margin: '2rem'}}>
                                 <Card.Body>
-                                    <Tabs variant="light" defaultActiveKey="folders" id="uncontrolled-tab-example">
-                                        <Tab eventKey="folders" title="Folders">
+                                    <h2 style={{marginLeft: '2rem',marginTop: '1rem'}}>Folders</h2>
+                                        <div style={{height: '700px', overflowY: 'scroll'}}>
                                             {!isLoading && <div>
                                                 {folders.data.map((f)=> <FolderComponent key={f.id} folder={f}/>)}
                                             </div>}
-                                        </Tab>
-                                        <Tab eventKey="tags" title="Tags">
-
-                                        </Tab>
-                                        <Tab eventKey="custom" title="Custom">
-
-                                        </Tab>
-                                    </Tabs>
+                                        </div>
                                 </Card.Body>
                             </Card>
                     </Col>
-                    <Col>
-                        <Card bg="dark" style={{margin: '2rem'}}>
-                            <Card.Body>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
+                    <Col xs={8}>
                         <Card bg="dark" style={{margin: '2rem'}}>
                             <Card.Body>
 
@@ -64,7 +53,7 @@ function MainPageComponent(){
                         </Card>
                     </Col>
                 </Row>
-            </>
+            </div>
     );
 }
 export default MainPageComponent;
